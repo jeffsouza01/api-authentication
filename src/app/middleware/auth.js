@@ -1,26 +1,26 @@
-// const jwt = require('jsonwebtoken');
-// const authConfig = require('../../config/auth.json');
+const jwt = require('jsonwebtoken');
+const authConfig = require('../../config/auth.json');
 
-// module.exports = (request, response, next) => {
-//     const authHeader = request.headers.authorization;
+module.exports = (request, response, next) => {
+    const authHeader = request.headers.authorization;
 
-//     if (!authHeader)
-//       return response.status(401).json({ error: 'Não autorizado'});
+    if (!authHeader)
+      return response.status(401).json({ error: 'Não autorizado'});
 
-//     const parts = authHeader.split(' ');
+    const parts = authHeader.split(' ');
 
-//     if (!parts.length === 2)
-//       return response.status(401).json({ error: 'Token error' });
+    if (!parts.length === 2)
+      return response.status(401).json({ error: 'Token error' });
 
-//     const [ bearer, token ] = parts;
+    const [ bearer, token ] = parts;
 
-//     if (!/^Bearer$/i.test(bearer))
-//       return response.status(401).json({ error: 'Token malformatted' });
+    if (!/^Bearer$/i.test(bearer))
+      return response.status(401).json({ error: 'Token malformatted' });
 
-//     jwt.verify(token, authConfig.secrect, (error, decoded) => {
-//       if (error) return response.status(401).json({ error: 'Não autorizado'});
+    jwt.verify(token, authConfig.secrect, (error, decoded) => {
+      if (error) return response.status(401).json({ error: 'Não autorizado'});
 
-//       request.userId = decoded.params.id;
-//       return next();
-//     })
-// }
+      request.userId = decoded.params.id;
+      return next();
+    })
+}
