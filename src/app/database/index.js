@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-    'mongodb+srv://authuser:mongodbUser01@authcloudproject.uqbgf.mongodb.net/AuthCloudProject?retryWrites=true&w=majority',
+  'mongodb+srv://authuser:mongodbUser01@authcloudproject.uqbgf.mongodb.net/AuthCloudProject?retryWrites=true&w=majority',
     {
         useUnifiedTopology: true,
         useNewUrlParser: true,
