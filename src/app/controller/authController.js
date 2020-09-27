@@ -49,8 +49,6 @@ module.exports = {
 
             now = new Date();
 
-            console.log(now);
-
             await User.findByIdAndUpdate(user.id, {ultimo_login: now});
 
             await user.save();
