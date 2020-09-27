@@ -44,15 +44,6 @@ const UserSchema = new mongoose.Schema({
       type: Date,
       default: Date.now,
     },
-    // resetTokenPassword: {
-    //   type: String,
-    //   select: false
-    // },
-    // resetExpiresPassword: {
-    //   type: Date,
-    //   select: false
-    // }
-
 });
 
 UserSchema.pre('save', async function(next) {

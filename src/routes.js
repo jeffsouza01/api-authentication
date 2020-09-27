@@ -6,9 +6,8 @@ const SessionController = require('./app/controller/sessionController');
 
 const authMiddleware = require('./app/middleware/auth');
 
-routes.post('/register', AuthController.register);
-routes.post('/login', AuthController.authenticate);
-//routes.post('/forgot_password', AuthController.forgotPassword);
+routes.post('/sign_up', AuthController.register);
+routes.post('/sign_in', AuthController.authenticate);
 routes.get('/', authMiddleware, SessionController.session);
 
 module.exports = routes;

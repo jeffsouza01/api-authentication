@@ -21,15 +21,14 @@ module.exports = {
             return response.status(400).json({ error: 'E-mail já existente'});
         }
 
-
         try {
-            const user = await User.create(request.body);
+            const usuario = await User.create(request.body);
 
-            user.password = undefined;
+            usuario.senha = undefined;
 
             return response.json({
-              user,
-              token: generateToken({ id: user.id })
+              usuario,
+              token: generateToken({ id: usuario.id })
               });
 
         } catch(err) {
@@ -38,27 +37,25 @@ module.exports = {
     },
 
     async authenticate(request, response) {
-        const {email, senha} = request.body;
-        const user = await User.findOne({ email }).select('+senha');
+      const {email, senha} = request.body;
 
         try {
+          const usuario = await User.findOne({ email }).select('+senha');
 
-            if (!user || !await bcrypt.compare(senha, user.senha))
-                return response.status(401).json({ error: 'Usuário e/ou senha inválidos'});
+          if (!usuario || !await bcrypt.compare(senha, usuario.senha))
+            return response.status(401).json({ error: 'Usuário e/ou senha inválidos'});
 
 
-            now = new Date();
+          now = new Date();
 
-            await User.findByIdAndUpdate(user.id, {ultimo_login: now});
+          await User.findByIdAndUpdate(usuario.id, {ultimo_login: now} , { upsert: true} );
 
-            await user.save();
+          usuario.senha = undefined;
 
-            user.senha = undefined;
-
-            return response.json({
-              user,
-              token: generateToken({ id: user.id })
-            });
+          return response.json({
+            usuario,
+            token: generateToken({ id: usuario.id })
+          });
 
         } catch(err) {
 
