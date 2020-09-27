@@ -1,11 +1,11 @@
 <h1 align="center"> API - Authentication </h1>
 
 
-1. <a href="#-Sobre a aplicação">
-2. <a href="#-Técnologias utilizadas:">
-3. <a href="#-Rotas">
-4. <a href="#-Rodando a aplicação local">
-5. <a href="#-Aplicação">
+1. <a href="###-Sobre a aplicação">
+2. <a href="###-Técnologias utilizadas:">
+3. <a href="###-Rotas">
+4. <a href="###-Rodando a aplicação local">
+5. <a href="###-Aplicação">
 
 
 ### Sobre a aplicação
@@ -24,7 +24,7 @@ Permitido apenas um cadastro de e-mail por usuário.
 ### Rotas:
 
 - **`POST /sign_up`**
-Esta rota deve receber `nome`, `email`, `senha` e um array de `telefone` com `ddd` e `numero` para cadastro de um novo usuário.
+<p>Esta rota deve receber `nome`, `email`, `senha` e um array de `telefone` com `ddd` e `numero` para cadastro de um novo usuário.
 
 _exemplo de retorno_
 ```json
@@ -50,7 +50,7 @@ _exemplo de retorno_
 
 
 - **`POST /sign_in`**
-Esta rota deve receber `email` e `senha` para autenticação do usuário cadastrado no banco.
+<p>Esta rota deve receber `email` e `senha` para autenticação do usuário cadastrado no banco.
 
 _exemplo de retorno_
 ```json
