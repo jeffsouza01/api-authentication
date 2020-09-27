@@ -1,11 +1,11 @@
 <h1 align="center"> API - Authentication </h1>
 
 
-1. <a href="#Sobre a aplicação">
-2. <a href="#Técnologias utilizadas:">
-3. <a href="#Rotas">
-4. <a href="#Rodando a aplicação local">
-5. <a href="#Aplicação">
+1. <a href="#-Sobre a aplicação">
+2. <a href="#-Técnologias utilizadas:">
+3. <a href="#-Rotas">
+4. <a href="#-Rodando a aplicação local">
+5. <a href="#-Aplicação">
 
 
 ### Sobre a aplicação
