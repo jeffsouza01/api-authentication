@@ -1,7 +1,12 @@
+const User = require('../models/user');
+
 
 module.exports = {
   async session (request, response) {
-    console.log(request.userID);
-    response.json({message: 'Authenticated ', user: request.userId });
+    const id = request.userId;
+    const usuario = await User.findById({_id: id});
+
+
+    response.json({message: 'Authenticated ', usuario });
   }
 }
