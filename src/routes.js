@@ -8,6 +8,6 @@ const authMiddleware = require('./app/middleware/auth');
 
 routes.post('/sign_up', AuthController.register);
 routes.post('/sign_in', AuthController.authenticate);
-routes.get('/', authMiddleware, SessionController.session);
+routes.get('/session', authMiddleware, SessionController.session);
 
 module.exports = routes;
