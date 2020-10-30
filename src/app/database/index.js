@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 mongoose.connect(
-  'mongodb+srv://authuser:mongodbUser01@authcloudproject.uqbgf.mongodb.net/AuthCloudProject?retryWrites=true&w=majority',
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_SECRET}@authcloudproject.uqbgf.mongodb.net/AuthCloudProject?retryWrites=true&w=majority`,
     {
         useUnifiedTopology: true,
         useNewUrlParser: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        useFindAndModify: false,
     });
 mongoose.Promise = global.Promise;
 
